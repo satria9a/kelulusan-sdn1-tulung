@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pengumuman Kelulusan - SEKOLAH DASAR NEGERI 1 TULUNG</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      padding: 50px;
+      text-align: center;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      max-width: 600px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input[type="text"] {
+      width: 80%;
+      padding: 10px;
+      margin-top: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      margin-top: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Pengumuman Kelulusan</h1>
+    <h2>SEKOLAH DASAR NEGERI 1 TULUNG</h2>
+    <p>Masukkan NISN Anda untuk melihat hasil kelulusan:</p>
+    <input type="text" id="nisn" placeholder="Contoh: 3125510660" />
+    <br/>
+    <button onclick="cekKelulusan()">Cek Kelulusan</button>
+    <div id="hasil" class="result"></div>
+  </div>
+
+  <script>
+    const dataKelulusan = {"3125510660": "LULUS", "3137851495": "LULUS", "3133568578": "LULUS", "124524744": "LULUS", "125207874": "LULUS", "125017174": "LULUS", "3129934716": "LULUS", "122815123": "LULUS", "3123143282": "LULUS", "3123966687": "LULUS", "139480140": "LULUS", "135331597": "LULUS", "127003107": "LULUS", "122015239": "LULUS", "3129812022": "LULUS"};
+
+    function cekKelulusan() {
+      const nisn = document.getElementById("nisn").value.trim();
+      const hasil = dataKelulusan[nisn];
+      const output = document.getElementById("hasil");
+
+      if (hasil) {
+        output.textContent = "Status Kelulusan: " + hasil;
+        output.style.color = hasil === "LULUS" ? "green" : "red";
+      } else {
+        output.textContent = "NISN tidak ditemukan.";
+        output.style.color = "orange";
+      }
+    }
+  </script>
+</body>
+</html>
